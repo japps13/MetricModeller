@@ -42,6 +42,98 @@
 		</fieldset>
 		</form>
 		
+		<!--Done by Joe
+		This code has been taken from http://groups.engin.umd.umich.edu/CIS/course.des/cis525/js/f00/artan/functionpoints.htm
+		and modified to meet my project needs. No author was given to credit so i have included the URL as reference.-->
+
+		<form  id="mainForm">
+			<fieldset>
+				<table border="0" width="87%" cellpadding="2" cellspacing="3" height="204">
+					<tr>
+						<td width="25%" height="21" align="left"></td>
+						<td width="21%" height="21"></td>
+						<td width="51%" align="center" height="21" colspan="3"><font size="4"><b>Weighting
+							Factor</b></font></td>
+						<td width="52%" height="21" align="right"></td>
+					</tr>
+					<tr>
+						<td width="25%" height="21" align="left"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							Measurement Parameter</b></td>
+						<td width="21%" height="21"><b>Count</b></td>
+						<td width="11%" align="center" height="21"><b>Simple</b></td>
+						<td width="11%" align="center" height="21"><b>Average</b></td>
+						<td width="11%" align="center" height="21"><b>Complex</b></td>
+						<td width="52%" height="21" align="right"></td>
+					</tr>
+					<tr>
+						<td width="25%" height="27" align="left"><label>Number of User Inputs</label></td>
+						<td width="21%" height="27"><INPUT Type ="text" Name="userInputs" onFocus="promptInputs()" onBlur="clearStatus()" size="6" value="0" >
+							x  </td>
+						<td width="11%" align="center" height="27"><input type="radio" value="3" name="userInputsWeight">3</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="4" name="userInputsWeight" checked>
+							4</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="6" name="userInputsWeight">
+							6</td>
+						<td width="52%" height="27" align="right">= <INPUT Name="T1" DISABLED size="6" value="0" >  </td>
+					</tr>
+					<tr>
+						<td width="25%" height="27" align="left"><label>Number of User Outputs</label></td>
+						<td width="21%" height="27"><INPUT Type ="text" Name="userOutputs" onFocus="promptOutputs()" onBlur="clearStatus()" size="6" value="0" >
+							x  </td>
+						<td width="11%" align="center" height="27"><input type="radio" value="4" name="userOutputsWeight">4</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="5" name="userOutputsWeight" checked>
+							5</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="7" name="userOutputsWeight">
+							7</td>
+						<td width="52%" height="27" align="right">= <INPUT Name="T2" DISABLED size="6" value="0" >  </td>
+					</tr>
+					<tr>
+						<td width="25%" height="27" align="left"><label>Number of User Inquiries</label></td>
+						<td width="21%" height="27"><INPUT Type ="text" Name="userInquiries" onFocus="promptInquiries()" onBlur="clearStatus()" size="6" value="0" >
+							x  </td>
+						<td width="11%" align="center" height="27"><input type="radio" value="3" name="userInquiriesWeight">3</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="4" name="userInquiriesWeight" checked>
+							4</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="6" name="userInquiriesWeight">
+							6</td>
+						<td width="52%" height="27" align="right">= <INPUT Name="T3" DISABLED size="6" value="0" >  </td>
+					</tr>
+					<tr>
+						<td width="25%" height="27" align="left"><label>Number of Files</label></td>
+						<td width="21%" height="27"><INPUT Type ="text" Name="numberFiles" onFocus="promptFiles()" onBlur="clearStatus()" size="6" value="0" >
+							x  </td>
+						<td width="11%" align="center" height="27"><input type="radio" value="7" name="numberFilesWeight">7</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="10" name="numberFilesWeight" checked>10</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="15" name="numberFilesWeight">15</td>
+						<td width="52%" height="27" align="right">= <INPUT Name="T4" DISABLED size="6" value="0" >  </td>
+					</tr>
+					<tr>
+						<td width="25%" height="27" align="left"><label>Number of External Interfaces</label></td>
+						<td width="21%" height="27"><INPUT Type ="text" Name="externalInterfaces" onFocus="promptInterfaces()" onBlur="clearStatus()" size="6" value="0" >
+							x  </td>
+						<td width="11%" align="center" height="27"><input type="radio" value="5" name="externalInterfacesWeight">5</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="7" name="externalInterfacesWeight" checked>
+							7</td>
+						<td width="11%" align="center" height="27"><input type="radio" value="10" name="externalInterfacesWeight">10</td>
+						<td width="52%" height="27" align="right">= <INPUT Name="T5" DISABLED size="6" value="0" >  </td>
+					</tr>
+					<tr>
+						<td width="159%" height="27" align="left" colspan="6">&nbsp;<font size="4">
+							Count = Total&nbsp;&nbsp;
+							---------------------------------------------------------------------------------------&nbsp;&nbsp;&nbsp;
+						</font><input name="Total" DISABLED size="8" value="0">  </td>
+					</tr>
+					<tr>
+						<td width="159%" height="27" align="left" colspan="6">&nbsp;<font size="4">
+							<p><input type="button" value="Calculate" name="B1" onClick="calculate()" >
+								<input type="reset" value="Reset" name="B2"></p>
+					 </td>
+					</tr>
+
+				</table>
+			</fieldset>
+		</form>
+		
 		<!--Done by Tom-->
 		<form  id="extra" class="extra">
 			<fieldset>
@@ -109,5 +201,47 @@
 				var total = numOfEmployees * empExperience;
 			}
 		});
+		
+		//Added by joe This function calculates the user input data.
+			// this function was taken from http://groups.engin.umd.umich.edu/CIS/course.des/cis525/js/f00/artan/functionpoints.htm
+		   // and modified to meet project needs.
+		function calculate() {
+// If data entry looks OK, calculate form.
+			var countTotal = 0, factorTotal = 0;
+
+			// calculate countTotal
+			if (mainForm.userInputsWeight[0].checked) mainForm.T1.value = 3 * mainForm.userInputs.value ;
+			if (mainForm.userInputsWeight[1].checked) mainForm.T1.value = 4 * mainForm.userInputs.value ;
+			if (mainForm.userInputsWeight[2].checked) mainForm.T1.value = 6 * mainForm.userInputs.value ;
+			countTotal = countTotal + parseInt(mainForm.T1.value);
+
+			if (mainForm.userOutputsWeight[0].checked) mainForm.T2.value = 4 * mainForm.userOutputs.value ;
+			if (mainForm.userOutputsWeight[1].checked) mainForm.T2.value = 5 * mainForm.userOutputs.value ;
+			if (mainForm.userOutputsWeight[2].checked) mainForm.T2.value = 7 * mainForm.userOutputs.value ;
+			countTotal = countTotal + parseInt(mainForm.T2.value);
+
+			if (mainForm.userInquiriesWeight[0].checked) mainForm.T3.value = 3 * mainForm.userInquiries.value ;
+			if (mainForm.userInquiriesWeight[1].checked) mainForm.T3.value = 4 * mainForm.userInquiries.value ;
+			if (mainForm.userInquiriesWeight[2].checked) mainForm.T3.value = 6 * mainForm.userInquiries.value ;
+			countTotal = countTotal + parseInt(mainForm.T3.value);
+
+			if (mainForm.numberFilesWeight[0].checked) mainForm.T4.value = 7 * mainForm.numberFiles.value ;
+			if (mainForm.numberFilesWeight[1].checked) mainForm.T4.value = 10 * mainForm.numberFiles.value ;
+			if (mainForm.numberFilesWeight[2].checked) mainForm.T4.value = 15 * mainForm.numberFiles.value ;
+			countTotal = countTotal + parseInt(mainForm.T4.value);
+
+			if (mainForm.externalInterfacesWeight[0].checked) mainForm.T5.value = 5 * mainForm.externalInterfaces.value ;
+			if (mainForm.externalInterfacesWeight[1].checked) mainForm.T5.value = 7 * mainForm.externalInterfaces.value ;
+			if (mainForm.externalInterfacesWeight[2].checked) mainForm.T5.value = 10 * mainForm.externalInterfaces.value ;
+			countTotal = countTotal + parseInt(mainForm.T5.value);
+
+			mainForm.Total.value = countTotal; // Put the sum onto the 'Total' field
+
+			// calculate the sum of the factor rates
+			for (var i=0; i<14; i++) factorTotal = factorTotal + parseInt(mainForm.F1[i].value);
+
+			// calculate the final result
+			mainForm.Result.value = parseInt(countTotal * (0.65 + 0.01 * factorTotal)) + " FP";
+		} // calculate
 		</script>
 	</html>
