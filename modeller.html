@@ -58,7 +58,22 @@
 			<input type="button" id="extraButton" name="extraButton"  value="Add Extra" />
 			</fieldset>
 		</form>
-		
+			 <!-- Imran Raza-->
+		 <!-- Imran Raza-->
+			<form id="empForm">
+				<fieldset>
+					<legend>Employee Information:</legend>
+					Number of Employees: <input type="text" id="numofEmp" maxlength="3" size="3" value="1"/>
+					<br />
+					Average level of Experience:
+					<select id="empExp" name="empExp">
+					  <option value="13.27" name="studentProgrammer">Student Programmer</option>
+					  <option value="17.29" name="juniorProgrammer">Junior Programmer</option>
+					  <option value="28.79" name="seniorProgrammer">Senior Programmer</option>
+					</select>
+					<input type="button" name="Calculate" value="Calculate" onclick="calcEmployee()"/>
+				</fieldset>
+			</form>
 		</body>
 		
 		<script>
@@ -87,7 +102,12 @@
 			console.log(toWeight); //just to check the value
 			});
 			
-
+			function calcEmployee(){
+				var numOfEmployees = document.getElementById("numofEmp"); //Text Box
+				var empExperience = document.getElementById("empExp").value; //Combo box selected value
+					
+				var total = numOfEmployees * empExperience;
+			}
 		});
 		</script>
 	</html>
